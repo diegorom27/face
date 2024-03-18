@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-expand-md bg-dark" data-bs-theme="dark">
+	<div class="container">
+		<div class="navbar-collapse">
+			<div class="navbar-nav">
+				<a
+					class="nav-link active"
+					aria-current="page"
+					href="#frontal"
+				>Frontal</a>
+				<a class="nav-link" href="#lateral">Lateral</a>
+				<a class="nav-link" href="#objetive">Objetive</a>
+			</div>
+			<div class="navbar-nav ms-auto ">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						models
+					</a>
+					<ul class="dropdown-menu">
+						{{#each hola}}
+							<li><a class="select-model" href="/?id={{this.id}}">{{this.name}}</a></li>
+						{{/each}}
+					</ul>
+				</li>
+				<span class="nav-link " style="cursor: pointer" id="saveModel">save</span>
+				<span class="nav-link " style="cursor: pointer;" id="calc">calc</span>
+			</div>
+		</div>
+	</div>
+</nav>

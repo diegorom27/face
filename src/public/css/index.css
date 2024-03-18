@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before{
+    box-sizing: content-box;
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+body{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.container-canvas {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    justify-content: center;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+.container-canvas::-webkit-scrollbar{
+    display: none;
+}
+.canvas-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80vh;
+    scroll-snap-align: center; 
+}
+.canvas-wrappler{
+    transform: scale(0.67);
+    margin: -110px 0;
+}
+.canvas-actions{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:1rem;
+}
+canvas {
+    display: block;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+input[type="file"] {
+    display: none; /* Ocultar el elemento de entrada por defecto */
+}
+
+.file-input-label {
+    display: inline-block;
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px; /* Espacio interno */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+.file-input-label:hover {
+    background-color: #0056b3; /* Color de fondo al pasar por encima */
+}
+button:hover {
+    background-color: #0056b3;
+}
+.navbar.navbar-expand-lg{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100vw;
+    background-color: #fff;
+}
+.canvas-center{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center; 
+    align-items: center;
+}
+.fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index: 999; 
+    border-radius: 100%;
+    width: 2.15rem;
+    height: 2.55rem;
+    font-size: 2.2rem;
+    text-align: center;
+    color: #fff;
+    background-color: black;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+}
+.dropdown-menu a{
+    text-decoration: none;
+    color: #fff;
+    padding-left: 0.3rem;
+    font-size: 0.9rem;
+    width: 100%;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.dropdown-menu a:hover{
+    color: antiquewhite;
+}

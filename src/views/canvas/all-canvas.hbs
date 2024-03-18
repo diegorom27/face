@@ -1,0 +1,82 @@
+<div class="container-canvas" style="margin-top: 100px">
+	<div class="canvas-center" id="frontal">
+		<div class="canvas-container" id="first">
+			<div class="canvas-wrappler">
+				<canvas
+					id="frontalCanvas"
+					width="500"
+					height="700"
+					style="border: 1px solid #000000"
+				>
+				</canvas>
+			</div>
+			<div class="canvas-actions">
+				<h3>Frontal</h3>
+				<label for="frontalImageLoader" class="btn btn-primary">Upload file</label>
+				<input type="file" id="frontalImageLoader" accept="image/*" />
+				<div class="buttons-zoom" id="frontalImageControls">
+					<button class="zoom-in btn btn-primary material-symbols-outlined">
+						add
+					</button>
+					<button class="zoom-out btn btn-primary material-symbols-outlined">
+						remove
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="canvas-center" id="lateral">
+		<div class="canvas-container">
+			<div class="canvas-wrappler">
+				<canvas
+					id="lateralCanvas"
+					width="500"
+					height="700"
+					style="border: 1px solid #000000"
+				>
+				</canvas>
+			</div>
+			<div class="canvas-actions">
+				<h3>Lateral</h3>
+				<label class="btn btn-primary"for="lateralImageLoader" >Upload file</label>
+				<input type="file" id="lateralImageLoader" accept="image/*" />
+				<div class="buttons-zoom" id="lateralImageControl">
+					<button class="zoom-in btn btn-primary material-symbols-outlined">
+						add
+					</button>
+					<button class="zoom-out btn btn-primary material-symbols-outlined">
+						remove
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="canvas-center" id="objetive">
+		<div class="canvas-container">
+			<div class="canvas-wrappler">
+				<canvas
+					id="objetiveCanvas"
+					width="500"
+					height="700"
+					style="border: 1px solid #000000"
+				>
+				</canvas>
+			</div>
+			<div class="canvas-actions">
+				<h3>Objetive</h3>
+				<label for="objetiveImageLoader" class="btn btn-danger">Upload file</label>
+				<input type="file" id="objetiveImageLoader" accept="image/*" />
+				<button class="Model btn btn-primary" id="selectFrontal">Frontal Model</button>
+				<button class="Model btn btn-primary" id="selectLateral">Lateral Model</button>
+				<div class="buttons-zoom" id="objetiveImageControls">
+					<button class="zoom-in btn btn-primary material-symbols-outlined">
+						add
+					</button>
+					<button class="zoom-out btn btn-primary material-symbols-outlined">
+						remove
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
