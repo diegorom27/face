@@ -1,0 +1,16 @@
+//Nos permite usar atajos en las rutas
+//Tambien es necesario agregarlo en el package.json
+{
+    "exclude":["node_modules"],
+    "compilerOptions": {
+        "module": "Node16",
+        "baseUrl": "./",
+        "paths": {
+            "#controllers/*":["./src/controllers/*"],
+            "#config/*":["./src/config/*"],
+            "#routes/*":["./src/routes/*"],
+            "#helper/*":["./src/helper/*"],
+            "#models/*":["./src/models/*"]
+        }
+    }
+}
