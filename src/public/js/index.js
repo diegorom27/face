@@ -64,6 +64,13 @@ d.addEventListener('click', async (e) => {
             let name = prompt('Ingrese el nombre del modelo');
             const frontImg = await img2binary(frontCanvas.img?.src)
             console.log(frontImg)
+            // Crear una URL de objeto para la imagen
+            const imageUrl = URL.createObjectURL(frontImg);
+
+            // Crear un objeto Image para la imagen
+            const image = new Image();
+            image.src = imageUrl;
+            console.log(image,imageUrl)
             /*
             saveModel({
                 name: name,
