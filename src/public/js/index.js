@@ -64,14 +64,6 @@ d.addEventListener('click', async (e) => {
             let name = prompt('Ingrese el nombre del modelo');
             const frontImg = await img2binary(frontCanvas.img?.src)
             console.log(frontImg)
-            // Crear una URL de objeto para la imagen
-            const blob = new Blob([frontImg], { type: 'image/png' }); 
-            const imageUrl = URL.createObjectURL(blob);
-
-            // Crear un objeto Image para la imagen
-            const image = new Image();
-            image.src = imageUrl;
-            console.log(image,imageUrl)
             /*
             saveModel({
                 name: name,
@@ -99,4 +91,13 @@ d.addEventListener('click', async (e) => {
     }
 });
 
+const binary2img=(frontImg)=>{
+    // Crear una URL de objeto para la imagen
+    const blob = new Blob([frontImg], { type: 'image/png' }); 
+    const imageUrl = URL.createObjectURL(blob);
 
+    // Crear un objeto Image para la imagen
+    const image = new Image();
+    image.src = imageUrl;
+    console.log(image,imageUrl)
+}

@@ -32,9 +32,9 @@ const mainSchema = new Schema({
         lines: [lineSchema]
     },
     name: String,
-    frontalImageSrc: String,
-    lateralImageSrc: String,
-    objectiveImageSrc: String,
+    frontalImageSrc: Buffer,
+    lateralImageSrc: Buffer,
+    objectiveImageSrc: Buffer,
     frontImageX: Number,
     frontImageY: Number,
     lateralImageX: Number,
