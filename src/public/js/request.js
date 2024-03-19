@@ -26,14 +26,20 @@ export const getModel = async (id) => {
         return console.error(err);
     }
 }
-export const saveImg = async (img) => {
+export const saveImg = async (perfil,imagesrc,imageX,imageY,scale) => {
     try {
         fetch('/img', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(img)
+            body: JSON.stringify({
+                perfil,
+                imagesrc,
+                imageX,
+                imageY,
+                scale
+            })
         });
     } catch (err) {
         return console.error(err);

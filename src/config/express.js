@@ -7,6 +7,7 @@ import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access
 import Handlebars from "handlebars"
 import indexRouter from "#routes/index.route.js"
 import mainRouter from "#routes/data.route.js"
+import imgRouter from "#routes/img.route.js"
 
 const app = express()
 
@@ -43,5 +44,6 @@ app.set(express.static(path.resolve("./src/static")))
 //routes
 app.use("/",indexRouter)
 app.use("/model",mainRouter)
+app.use("/img",imgRouter)
 
 export default app

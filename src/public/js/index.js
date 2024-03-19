@@ -1,8 +1,8 @@
-import { loadImage } from './saveImage.js'
+import { loadImage } from './loadImage.js'
 import {identifyObject} from './calcularIdent.js'
 import {handleMouseDown,handleMouseUp,handleMouseMove,handlerZoom} from "./eventHandler.js"
 import {createCanvas} from './canvasFactory.js'
-import {saveModel,getModel } from "./request.js"
+import {saveModel,getModel,saveImg} from "./request.js"
 import { img2binary } from './img2binary.js'
 
 console.log('Hola desde index.js 1')
@@ -25,10 +25,14 @@ const res = await fetch('../json/models.json'),
 const urlParams = new URLSearchParams(window.location.search);
 let id = await urlParams.get("id") || "65f4cc299c7a166c86ce09aa";
 let model = await getModel(id)
+/*
 const frontCanvas = await createCanvas(model.front, lienzo, model.frontalImageSrc,model?.frontImageX,model?.frontImageY,model?.scale1),
       lateralCanvas = await createCanvas(model.lateral, lienzo1, model.lateralImageSrc,model?.lateralImageX,model?.lateralImageY,model?.scale2),
       objetiveCanvas = await createCanvas(model.objective, lienzo2,model.objectiveImageSrc,model?.objectiveImageX,model?.objectiveImageY,model?.scale3);
-
+*/
+const frontCanvas = await createCanvas(model.front, lienzo, null ,0 , 0 ,0),
+      lateralCanvas = await createCanvas(model.lateral, lienzo1, null , 0 , 0 , 0),
+      objetiveCanvas = await createCanvas(model.objective, lienzo2, null ,0 ,0 , 0);
 
 // Events
 d.addEventListener('mousedown', (e) => handleMouseDown(frontCanvas, lateralCanvas, objetiveCanvas, e));
@@ -49,6 +53,8 @@ d.addEventListener('change', async (e) => {
             if (e.target.matches(`#objetiveImageLoader`)) {
                 objetiveCanvas.setImg = img;
             }
+            const uintImg = await img2binary(frontCanvas.img?.src)
+            await saveImg('front',uintImg,0,0,0);
             reader.onload = null;
         }
         reader.readAsDataURL(file); 
