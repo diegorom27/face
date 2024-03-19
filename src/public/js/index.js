@@ -25,8 +25,7 @@ const res = await fetch('../json/models.json'),
 const urlParams = new URLSearchParams(window.location.search);
 let id = await urlParams.get("id") || "65fa014990bb53d0c6fa7350";
 let model = await getModel(id)
-let imgF = await getImg(model.imgFront) 
-console.log(imgF)
+let imgF = await getImg(model.imgFront)
 let imgL = await getImg(model.imgLateral)
 let imgO = await getImg(model.imgObjective)
 /*
