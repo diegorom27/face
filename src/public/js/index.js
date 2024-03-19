@@ -54,7 +54,8 @@ d.addEventListener('change', async (e) => {
                 objetiveCanvas.setImg = img;
             }
             const uintImg = await img2binary(frontCanvas.img?.src)
-            await saveImg('front',uintImg,0,0,0);
+            let res = await saveImg('front',uintImg,0,0,0);
+            console.log(res)
             reader.onload = null;
         }
         reader.readAsDataURL(file); 

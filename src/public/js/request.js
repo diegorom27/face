@@ -28,7 +28,7 @@ export const getModel = async (id) => {
 }
 export const saveImg = async (perfil,img,imageX,imageY,scale) => {
     try {
-        fetch('/img', {
+        const res = await fetch('/img', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,6 +41,8 @@ export const saveImg = async (perfil,img,imageX,imageY,scale) => {
                 scale
             })
         });
+        const json = await res.json();
+        return json
     } catch (err) {
         return console.error(err);
     }

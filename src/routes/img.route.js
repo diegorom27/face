@@ -10,8 +10,8 @@ router.post('/', async (req, res) => {
     data.img = Buffer.from(data.img)
     const newImg = new ImgModel(data);
     try {
-        const res = await newImg.save();
-        res.status(201).json(res);
+        const result = await newImg.save();
+        res.status(201).json(result);
     } catch (err) {
         console.log(err)
         res.status(400).json({ message: err.message });
