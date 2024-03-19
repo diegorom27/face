@@ -6,8 +6,6 @@ const router = Router();
 
 router.post('/', async (req, res) => {
     const data = req.body;
-    console.log(data.img)
-    data.img = Uint8Array.from(Object.values(data.img))
     data.img = Buffer.from(data.img)
     const newImg = new ImgModel(data);
     try {
@@ -26,7 +24,6 @@ router.get('/:id', async(req, res) => {
         if (img == null) {
             return res.status(404).json({ message: 'Main no encontrado' });
         }
-        img.img = Uint8Array.from(img.img)
         res.json(img);
     } catch (error) {
         res.status(500).json({ message: error.message });
