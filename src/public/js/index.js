@@ -1,5 +1,4 @@
 import { loadImage } from './saveImage.js'
-import { saveFile } from './saveFile.js'
 import {identifyObject} from './calcularIdent.js'
 import {handleMouseDown,handleMouseUp,handleMouseMove,handlerZoom} from "./eventHandler.js"
 import {createCanvas} from './canvasFactory.js'
@@ -38,10 +37,8 @@ d.addEventListener('change', async (e) => {
         const file = e.target.files[0];
         if (!file) return;
         const reader = new FileReader();
-        console.log(file)
         reader.onload = async (event) => {
             const img = await loadImage(event.target.result);
-            console.log(event.target.result)
             if (e.target.matches(`#frontalImageLoader`))
                 frontCanvas.setImg = img;
             if (e.target.matches(`#lateralImageLoader`))
@@ -49,6 +46,7 @@ d.addEventListener('change', async (e) => {
             if (e.target.matches(`#objetiveImageLoader`)) {
                 objetiveCanvas.setImg = img;
             }
+            reader.onload = null;
         }
         reader.readAsDataURL(file); 
     } catch (error) {
