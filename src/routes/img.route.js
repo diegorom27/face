@@ -7,7 +7,7 @@ const router = Router();
 router.post('/', async (req, res) => {
     const data = req.body;
     console.log(data.img,'Hola')
-    data.img = Buffer.from(data.img.split(',')[1], 'base64');
+    data.img = Buffer.from(data.img, 'base64');
     const newImg = new ImgModel(data);
     try {
         const result = await newImg.save();
@@ -25,6 +25,7 @@ router.get('/:id', async(req, res) => {
         if (img == null) {
             return res.status(404).json({ message: 'Main no encontrado' });
         }
+        img.img=img.img.toString('base64');
         res.json(img);
     } catch (error) {
         res.status(500).json({ message: error.message });
