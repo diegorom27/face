@@ -3,6 +3,7 @@ import {identifyObject} from './calcularIdent.js'
 import {handleMouseDown,handleMouseUp,handleMouseMove,handlerZoom} from "./eventHandler.js"
 import {createCanvas} from './canvasFactory.js'
 import {saveModel,getModel } from "./request.js"
+import { img2binary } from './img2binary.js'
 
 let d = document,
     lienzo  = d.getElementById('frontalCanvas'),
@@ -61,6 +62,8 @@ d.addEventListener('click', async (e) => {
             identifyObject(frontCanvas, lateralCanvas, objetiveCanvas, equivalentPoint);
         if (e.target.matches(`#saveModel`)){
             let name = prompt('Ingrese el nombre del modelo');
+            const frontImg = await img2binary(frontCanvas.img?.src)
+            console.log(frontImg)
             saveModel({
                 name: name,
                 front: frontCanvas.coors,
