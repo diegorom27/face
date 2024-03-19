@@ -2,7 +2,7 @@ import { loadImage } from './loadImage.js'
 import {identifyObject} from './calcularIdent.js'
 import {handleMouseDown,handleMouseUp,handleMouseMove,handlerZoom} from "./eventHandler.js"
 import {createCanvas} from './canvasFactory.js'
-import {saveModel,getModel,saveImg} from "./request.js"
+import {saveModel,getModel,saveImg,getImg} from "./request.js"
 import { img2binary } from './img2binary.js'
 
 console.log('Hola desde index.js 1')
