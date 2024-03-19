@@ -65,7 +65,8 @@ d.addEventListener('click', async (e) => {
             const frontImg = await img2binary(frontCanvas.img?.src)
             console.log(frontImg)
             // Crear una URL de objeto para la imagen
-            const imageUrl = URL.createObjectURL(frontImg);
+            const blob = new Blob([frontImg], { type: 'image/png' }); 
+            const imageUrl = await URL.createObjectURL(blob);
 
             // Crear un objeto Image para la imagen
             const image = new Image();
