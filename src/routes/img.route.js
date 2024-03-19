@@ -7,6 +7,7 @@ const router = Router();
 router.post('/', async (req, res) => {
     const data = req.body;
     console.log(data.img,'Hola')
+    data.img = Buffer.from(data.img.split(',')[1], 'base64');
     const newImg = new ImgModel(data);
     try {
         const result = await newImg.save();
