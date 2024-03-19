@@ -1,8 +1,11 @@
 
 export const saveFile = async (event) => {
+    console.log(event.target.files[0]);
     const file = event.target.files[0];
+    console.log(file);
     const formData = new FormData();
     formData.append('file', file);
+    console.log(formData);
     try {
         const response = await fetch('/upload', {
             method: 'POST',
