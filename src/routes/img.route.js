@@ -6,7 +6,6 @@ const router = Router();
 
 router.post('/', async (req, res) => {
     const data = req.body;
-    data.img = Buffer.from(data.img)
     const newImg = new ImgModel(data);
     try {
         const result = await newImg.save();
