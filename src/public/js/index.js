@@ -63,16 +63,14 @@ d.addEventListener('click', async (e) => {
         if (e.target.matches(`#saveModel`)){
             let name = prompt('Ingrese el nombre del modelo');
             const frontImg = await img2binary(frontCanvas.img?.src)
-            console.log(frontImg)
-            /*
             saveModel({
                 name: name,
                 front: frontCanvas.coors,
                 lateral: lateralCanvas.coors,
                 objective: objetiveCanvas.coors,
-                frontalImageSrc: frontCanvas.img?.src || '',
-                lateralImageSrc: lateralCanvas.img?.src || '',
-                objectiveImageSrc: objetiveCanvas.img?.src || '',
+                frontalImageSrc: frontImg || '',
+                lateralImageSrc: frontImg || '',
+                objectiveImageSrc: frontImg || '',
                 frontImageX: frontCanvas.imgX,
                 frontImageY: frontCanvas.imgY,
                 lateralImageX: lateralCanvas.imgX,
@@ -84,7 +82,6 @@ d.addEventListener('click', async (e) => {
                 scale3: objetiveCanvas.scale
             });
             window.location.reload()
-            */
         }
     } catch (error) {
         console.error('Error en el evento click:', error);
@@ -92,11 +89,8 @@ d.addEventListener('click', async (e) => {
 });
 
 const binary2img=(frontImg)=>{
-    // Crear una URL de objeto para la imagen
     const blob = new Blob([frontImg], { type: 'image/png' }); 
     const imageUrl = URL.createObjectURL(blob);
-
-    // Crear un objeto Image para la imagen
     const image = new Image();
     image.src = imageUrl;
     console.log(image,imageUrl)

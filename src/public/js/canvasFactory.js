@@ -5,7 +5,10 @@ export async function createCanvas(coors, canvasElement, imgPath = null,imgX=0,i
     try {
         let img = null;
         if (imgPath) {
-            img = await loadImage(imgPath);
+            img = new Image();
+            const blob = new Blob([imgPath], { type: 'image/png' }); 
+            const imageUrl = URL.createObjectURL(blob);
+            img.src = imageUrl;
         }
         const canvas = new Canvas(coors, canvasElement, img);
         if(scale)canvas.setScale = scale
