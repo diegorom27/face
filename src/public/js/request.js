@@ -42,7 +42,7 @@ export const saveImg = async (perfil,img,imageX,imageY,scale) => {
             })
         });
         const json = await res.json();
-        return json
+        return json._id
     } catch (err) {
         return console.error(err);
     }

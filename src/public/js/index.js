@@ -53,9 +53,6 @@ d.addEventListener('change', async (e) => {
             if (e.target.matches(`#objetiveImageLoader`)) {
                 objetiveCanvas.setImg = img;
             }
-            const uintImg = await img2binary(frontCanvas.img?.src)
-            let res = await saveImg('front',uintImg,0,0,0);
-            console.log(res)
             reader.onload = null;
         }
         reader.readAsDataURL(file); 
@@ -71,25 +68,21 @@ d.addEventListener('click', async (e) => {
             identifyObject(frontCanvas, lateralCanvas, objetiveCanvas, equivalentPoint);
         if (e.target.matches(`#saveModel`)){
             let name = prompt('Ingrese el nombre del modelo');
-            const uintFrontal = await img2binary(frontCanvas.img?.src)
-            console.log(uintFrontal)
+            if (!name) return;
+            const uintImgF = await img2binary(frontCanvas?.img?.src)
+            let fId = await saveImg('front',uintImgF,frontCanvas?.imgStartX,frontCanvas?.imgStartY,frontCanvas?.scale);
+            const uintImgL = await img2binary(lateralCanvas?.img?.src)
+            let lId = await saveImg('lateral',uintImgL,lateralCanvas?.imgStartX,lateralCanvas?.imgStartY,lateralCanvas?.scale);
+            const uintImgO = await img2binary(objetiveCanvas?.img?.src)
+            let oId = await saveImg('objetive',uintImgO,objetiveCanvas?.imgStartX,objetiveCanvas?.imgStartY,objetiveCanvas?.scale);
             await saveModel({
                 name: name,
                 front: frontCanvas.coors,
                 lateral: lateralCanvas.coors,
                 objective: objetiveCanvas.coors,
-                frontalImageSrc: uintFrontal || '',
-                lateralImageSrc: uintFrontal,
-                objectiveImageSrc: uintFrontal,
-                frontImageX: frontCanvas.imgX,
-                frontImageY: frontCanvas.imgY,
-                lateralImageX: lateralCanvas.imgX,
-                lateralImageY: lateralCanvas.imgY,
-                objectiveImageX: objetiveCanvas.imgX,
-                objectiveImageY: objetiveCanvas.imgY,
-                scale1: frontCanvas.scale,
-                scale2: lateralCanvas.scale,
-                scale3: objetiveCanvas.scale
+                imgFront: fId || '',
+                imgLateral: lId || '',
+                imgObjective: oId || '',
             });
             //window.location.reload()
         }

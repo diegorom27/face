@@ -32,9 +32,18 @@ const mainSchema = new Schema({
         lines: [lineSchema]
     },
     name: String,
-    frontalImageSrc: Buffer,
-    lateralImageSrc: Buffer,
-    objectiveImageSrc: Buffer,
+    imgLateral:{
+        type: Schema.Types.ObjectId,
+        ref: 'imgModel'
+    },
+    imgFront:{
+        type: Schema.Types.ObjectId,
+        'ref': 'imgModel'
+    },
+    imgObjective:{
+        type: Schema.Types.ObjectId,
+        "ref": 'imgModel'
+    }
 });
 
 export default model('MainModel', mainSchema);
