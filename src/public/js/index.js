@@ -64,6 +64,7 @@ d.addEventListener('click', async (e) => {
             let name = prompt('Ingrese el nombre del modelo');
             const frontImg = await img2binary(frontCanvas.img?.src)
             console.log(frontImg)
+            /*
             saveModel({
                 name: name,
                 front: frontCanvas.coors,
@@ -83,6 +84,7 @@ d.addEventListener('click', async (e) => {
                 scale3: objetiveCanvas.scale
             });
             window.location.reload()
+            */
         }
     } catch (error) {
         console.error('Error en el evento click:', error);
