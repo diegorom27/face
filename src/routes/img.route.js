@@ -25,6 +25,7 @@ router.get('/:id', async(req, res) => {
         if (img == null) {
             return res.status(404).json({ message: 'Main no encontrado' });
         }
+        img.img = Uint8Array.from(img.img)
         res.json(img);
     } catch (error) {
         res.status(500).json({ message: error.message });
