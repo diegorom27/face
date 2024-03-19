@@ -9,6 +9,8 @@ await connectDB(process.env.ATLAS_URI)
 httpServer.listen(process.env.PORT,()=>{
     console.log('running on http://localhost:'+process.env.PORT)
 })
-
+httpServer.close(() => {
+    console.log('Servidor cerrado');
+});
 
 export default httpServer
