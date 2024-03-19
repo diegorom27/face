@@ -80,10 +80,5 @@ d.addEventListener('click', async (e) => {
         console.error('Error en el evento click:', error);
     }
 });
-d.addEventListener('contextmenu', async (e) => {
-    frontCanvas.writeModel(e);
-    lateralCanvas.writeModel(e);
-    objetiveCanvas.writeModel(e);
-})
 
 
