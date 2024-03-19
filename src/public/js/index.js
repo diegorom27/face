@@ -38,8 +38,10 @@ d.addEventListener('change', async (e) => {
         const file = e.target.files[0];
         if (!file) return;
         const reader = new FileReader();
+        console.log(file)
         reader.onload = async (e) => {
             const img = await loadImage(e.target.result);
+            console.log(e.target.result)
             if (e.target.matches(`#frontalImageLoader`))
                 frontCanvas.setImg = img;
             if (e.target.matches(`#lateralImageLoader`))
