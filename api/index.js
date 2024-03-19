@@ -1,4 +1,4 @@
-import httpServer from '../src/index.js'
+import serverlessapp from '../src/index.js'
 
 
-export default httpServer
+export default serverlessapp

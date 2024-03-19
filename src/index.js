@@ -1,7 +1,7 @@
 import httpServer from "#config/http.js";
 import "#config/env.js";
 import connectDB from "#config/db.js";
-import httpServer from '../src/index.js'
+import { EventEmitter } from "node:events";
 
 const emitter = new EventEmitter();
 emitter.setMaxListeners(emitter.getMaxListeners() + 40);
