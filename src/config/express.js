@@ -14,12 +14,11 @@ const app = express()
 
 //middlewares
 app.use(morgan("dev"))
-app.use(express.urlencoded({extended:false}))
 app.set("views",path.resolve('./src/views'))
 app.use(express.static(path.resolve('./src/public')))
 app.use(express.json())
-app.use(bodyParser.json({ limit: '50MB' }));
-
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors({
     origin:function(origin,callback){
         const ACCEPTED_ORIGIN=[
