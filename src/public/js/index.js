@@ -26,6 +26,7 @@ const urlParams = new URLSearchParams(window.location.search);
 let id = await urlParams.get("id") || "65f9edd908793dc911a8d811";
 let model = await getModel(id)
 let imgF = await getImg(model.imgFront) 
+console.log(imgF)
 let imgL = await getImg(model.imgLateral)
 let imgO = await getImg(model.imgObjective)
 /*
