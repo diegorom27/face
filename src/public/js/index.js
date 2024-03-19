@@ -69,7 +69,7 @@ d.addEventListener('click', async (e) => {
                 lateral: lateralCanvas.coors,
                 objective: objetiveCanvas.coors,
                 frontalImageSrc: uintFrontal || '',
-                lateralImageSrc: uintFrontal || '',
+                lateralImageSrc: '',
                 objectiveImageSrc: '',
                 frontImageX: frontCanvas.imgX,
                 frontImageY: frontCanvas.imgY,
