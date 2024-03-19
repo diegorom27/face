@@ -13,6 +13,7 @@ router.get("/",async (req, res) => {
     }
 });
 router.post('/upload',(req,res)=>{
+    console.log('entro a upload')
     uploadFile(req, res, (err) => {
         if (err) {
             return res.status(500).json(err);
