@@ -35,15 +35,6 @@ const mainSchema = new Schema({
     frontalImageSrc: Buffer,
     lateralImageSrc: Buffer,
     objectiveImageSrc: Buffer,
-    frontImageX: Number,
-    frontImageY: Number,
-    lateralImageX: Number,
-    lateralImageY: Number,
-    objectiveImageX: Number,
-    objectiveImageY: Number,
-    scale1: Number,
-    scale2: Number,
-    scale3: Number
 });
 
 export default model('MainModel', mainSchema);
