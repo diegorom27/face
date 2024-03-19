@@ -50,6 +50,7 @@ d.addEventListener('change', async (e) => {
                 objetiveCanvas.setImg = img;
             }
         }
+        reader.readAsDataURL(file); 
     } catch (error) {
         console.error('Error en el evento change:', error);
     }
