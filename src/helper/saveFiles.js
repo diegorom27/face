@@ -4,6 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 
 const storage = multer.diskStorage({ 
     destination: (req, file, cb) => {
+        console.log('entro a storage')
         let filePath = path.resolve('./src/public/img/');
         console.log(filePath)
         cb(null, filePath);
