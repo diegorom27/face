@@ -81,7 +81,7 @@ d.addEventListener('click', async (e) => {
                 scale2: lateralCanvas.scale,
                 scale3: objetiveCanvas.scale
             });
-            window.location.reload()
+            //window.location.reload()
         }
     } catch (error) {
         console.error('Error en el evento click:', error);
