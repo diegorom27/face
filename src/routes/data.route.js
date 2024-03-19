@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
         const newMain = await main.save();
         res.status(201).json(newMain);
     } catch (err) {
+        console.log(err)
         res.status(400).json({ message: err.message });
     }
 });

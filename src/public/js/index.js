@@ -62,15 +62,16 @@ d.addEventListener('click', async (e) => {
             identifyObject(frontCanvas, lateralCanvas, objetiveCanvas, equivalentPoint);
         if (e.target.matches(`#saveModel`)){
             let name = prompt('Ingrese el nombre del modelo');
-            const frontImg = await img2binary(frontCanvas.img?.src)
+            const uintFrontal = await img2binary(frontCanvas.img?.src)
+            const bufferFrontal = Buffer.from(uintFrontal);
             await saveModel({
                 name: name,
                 front: frontCanvas.coors,
                 lateral: lateralCanvas.coors,
                 objective: objetiveCanvas.coors,
-                frontalImageSrc: frontImg || '',
-                lateralImageSrc: frontImg || '',
-                objectiveImageSrc: frontImg || '',
+                frontalImageSrc: bufferFrontal || '',
+                lateralImageSrc: bufferFrontal || '',
+                objectiveImageSrc: '',
                 frontImageX: frontCanvas.imgX,
                 frontImageY: frontCanvas.imgY,
                 lateralImageX: lateralCanvas.imgX,
@@ -93,5 +94,4 @@ const binary2img=(frontImg)=>{
     const imageUrl = URL.createObjectURL(blob);
     const image = new Image();
     image.src = imageUrl;
-    console.log(image,imageUrl)
 }
