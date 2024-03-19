@@ -4,9 +4,9 @@ export async function createCanvas(coors, canvasElement, imgPath = null,imgX=0,i
         let img = null;
         if (imgPath) {
             img = new Image();
-            const blob = new Blob([imgPath], { type: 'image/png' }); 
-            const imageUrl = URL.createObjectURL(blob);
-            img.src = imageUrl;
+            //const blob = new Blob([imgPath], { type: 'image/png' }); 
+            //const imageUrl = URL.createObjectURL(blob);
+            img.src = imgPath;
             console.log(img)
         }
         const canvas = new Canvas(coors, canvasElement, img);
