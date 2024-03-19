@@ -5,7 +5,7 @@ const imgSchema = new Schema({
     imageX: Number,
     imageY: Number,
     scale: Number,
-    imagesrc:Buffer
+    img:Buffer
 })
 
 export default model('ImgModel', imgSchema);

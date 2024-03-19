@@ -26,7 +26,7 @@ export const getModel = async (id) => {
         return console.error(err);
     }
 }
-export const saveImg = async (perfil,imagesrc,imageX,imageY,scale) => {
+export const saveImg = async (perfil,img,imageX,imageY,scale) => {
     try {
         fetch('/img', {
             method: 'POST',
@@ -35,7 +35,7 @@ export const saveImg = async (perfil,imagesrc,imageX,imageY,scale) => {
             },
             body: JSON.stringify({
                 perfil,
-                imagesrc,
+                img,
                 imageX,
                 imageY,
                 scale
