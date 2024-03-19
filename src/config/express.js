@@ -23,6 +23,8 @@ app.use(cors({
         const ACCEPTED_ORIGIN=[
             "http://localhost:3000"
         ]
+        if(/face-(.*)-diego-fernando-roman-lopezs-projects.vercel.app/.test(origin))
+            return callback(null,true)
         if(ACCEPTED_ORIGIN.includes(origin) || !origin)
             return callback(null,true)
         return callback(new Error('Not allowed by CORS'))
