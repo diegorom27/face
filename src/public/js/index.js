@@ -23,16 +23,19 @@ const res = await fetch('../json/models.json'),
       defaultModels = await res.json(),
       {front,lateral,equivalentPoint}=defaultModels
 const urlParams = new URLSearchParams(window.location.search);
-let id = await urlParams.get("id") || "65f4cc299c7a166c86ce09aa";
+let id = await urlParams.get("id") || "65f9edd908793dc911a8d811";
 let model = await getModel(id)
+let imgF = await getImg(model.imgFront) 
+let imgL = await getImg(model.imgLateral)
+let imgO = await getImg(model.imgObjective)
 /*
 const frontCanvas = await createCanvas(model.front, lienzo, model.frontalImageSrc,model?.frontImageX,model?.frontImageY,model?.scale1),
       lateralCanvas = await createCanvas(model.lateral, lienzo1, model.lateralImageSrc,model?.lateralImageX,model?.lateralImageY,model?.scale2),
       objetiveCanvas = await createCanvas(model.objective, lienzo2,model.objectiveImageSrc,model?.objectiveImageX,model?.objectiveImageY,model?.scale3);
 */
-const frontCanvas = await createCanvas(model.front, lienzo, null ,0 , 0 ,0),
-      lateralCanvas = await createCanvas(model.lateral, lienzo1, null , 0 , 0 , 0),
-      objetiveCanvas = await createCanvas(model.objective, lienzo2, null ,0 ,0 , 0);
+const frontCanvas = await createCanvas(model.front, lienzo, imgF.img , imgF.imageX , imgF.imageY ,imgF.scale),
+      lateralCanvas = await createCanvas(model.lateral, lienzo1, imgL.img , imgL.imageX , imgL.imageY ,imgL.scale),
+      objetiveCanvas = await createCanvas(model.objective, lienzo2, imgO.img , imgO.imageX , imgO.imageY ,imgO.scale);
 
 // Events
 d.addEventListener('mousedown', (e) => handleMouseDown(frontCanvas, lateralCanvas, objetiveCanvas, e));
@@ -90,10 +93,3 @@ d.addEventListener('click', async (e) => {
         console.error('Error en el evento click:', error);
     }
 });
-
-const binary2img=(frontImg)=>{
-    const blob = new Blob([frontImg], { type: 'image/png' }); 
-    const imageUrl = URL.createObjectURL(blob);
-    const image = new Image();
-    image.src = imageUrl;
-}

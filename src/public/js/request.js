@@ -47,3 +47,17 @@ export const saveImg = async (perfil,img,imageX,imageY,scale) => {
         return console.error(err);
     }
 }
+export const getImg = async (id) => {
+    try {
+        const res = await fetch('/img/'+id, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const json = await res.json();
+        return json
+    } catch (err) {
+        return console.error(err);
+    }
+}
