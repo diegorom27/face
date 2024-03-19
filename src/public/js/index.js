@@ -5,6 +5,8 @@ import {createCanvas} from './canvasFactory.js'
 import {saveModel,getModel } from "./request.js"
 import { img2binary } from './img2binary.js'
 
+console.log('Hola desde index.js')
+
 let d = document,
     lienzo  = d.getElementById('frontalCanvas'),
     lienzo1 = d.getElementById('lateralCanvas'),
