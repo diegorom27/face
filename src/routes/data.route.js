@@ -15,10 +15,11 @@ router.get('/all', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const data = req.body;
-    console.log('hola');
+    console.log(data.frontalImageSrc)
     data.frontalImageSrc = Buffer.from(data.frontalImageSrc)
     data.lateralImageSrc = Buffer.from(data.frontalImageSrc)
     data.objectiveImageSrc = Buffer.from(data.frontalImageSrc)
+    console.log('hola');
     const main = new Main(data);
     try {
         const newMain = await main.save();
