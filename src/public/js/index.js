@@ -35,14 +35,18 @@ d.addEventListener('mouseup', (e) => handleMouseUp(frontCanvas, lateralCanvas, o
 
 d.addEventListener('change', async (e) => {
     try {
-        const fileName = await saveFile(e);
-        const img = await loadImage('../img/' + fileName);
-        if (e.target.matches(`#frontalImageLoader`))
-            frontCanvas.setImg = img;
-        if (e.target.matches(`#lateralImageLoader`))
-            lateralCanvas.setImg = img;
-        if (e.target.matches(`#objetiveImageLoader`)) {
-            objetiveCanvas.setImg = img;
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            const img = await loadImage(e.target.result);
+            if (e.target.matches(`#frontalImageLoader`))
+                frontCanvas.setImg = img;
+            if (e.target.matches(`#lateralImageLoader`))
+                lateralCanvas.setImg = img;
+            if (e.target.matches(`#objetiveImageLoader`)) {
+                objetiveCanvas.setImg = img;
+            }
         }
     } catch (error) {
         console.error('Error en el evento change:', error);
