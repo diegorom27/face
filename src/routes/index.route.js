@@ -16,6 +16,7 @@ router.post('/upload',(req,res)=>{
     console.log('entro a upload')
     uploadFile(req, res, (err) => {
         if (err) {
+            console.error('Error al subir el archivo:', err);
             return res.status(500).json(err);
         }
         return res.status(200).send(req.file);
