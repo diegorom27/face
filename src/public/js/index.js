@@ -23,7 +23,7 @@ const res = await fetch('../json/models.json'),
       defaultModels = await res.json(),
       {front,lateral,equivalentPoint}=defaultModels
 const urlParams = new URLSearchParams(window.location.search);
-let id = await urlParams.get("id") || "65f9edd908793dc911a8d811";
+let id = await urlParams.get("id") || "65fa014990bb53d0c6fa7350";
 let model = await getModel(id)
 let imgF = await getImg(model.imgFront) 
 console.log(imgF)
