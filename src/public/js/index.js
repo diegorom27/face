@@ -63,7 +63,7 @@ d.addEventListener('click', async (e) => {
         if (e.target.matches(`#saveModel`)){
             let name = prompt('Ingrese el nombre del modelo');
             const frontImg = await img2binary(frontCanvas.img?.src)
-            saveModel({
+            await saveModel({
                 name: name,
                 front: frontCanvas.coors,
                 lateral: lateralCanvas.coors,
