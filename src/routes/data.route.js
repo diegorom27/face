@@ -17,12 +17,9 @@ router.post('/', async (req, res) => {
     const data = req.body;
     console.log(data.frontalImageSrc)
     data.frontalImageSrc = Uint8Array.from(Object.values(data.frontalImageSrc))
-    console.log('to uint8')
     data.frontalImageSrc = Buffer.from(data.frontalImageSrc)
-    console.log('hola')
     data.lateralImageSrc = Buffer.from(data.frontalImageSrc)
     data.objectiveImageSrc = Buffer.from(data.frontalImageSrc)
-    console.log('hola');
     const main = new Main(data);
     try {
         const newMain = await main.save();
