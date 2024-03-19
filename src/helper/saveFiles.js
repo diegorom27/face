@@ -12,6 +12,7 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         console.log('entro a filename')
         cb(null,uuidv4()+file.originalname);
+        console.log(file.originalname);
     }
 });
 
