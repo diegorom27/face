@@ -5,10 +5,8 @@ import path from "node:path"
 import exphbs from "express-handlebars"
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'
 import Handlebars from "handlebars"
-import uploadFile from "#helper/saveFiles.js"
 import indexRouter from "#routes/index.route.js"
 import mainRouter from "#routes/data.route.js"
-import bodyParser from "body-parser"
 
 const app = express()
 
@@ -17,8 +15,8 @@ app.use(morgan("dev"))
 app.set("views",path.resolve('./src/views'))
 app.use(express.static(path.resolve('./src/public')))
 app.use(express.json())
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000}));
 app.use(cors({
     origin:function(origin,callback){
         const ACCEPTED_ORIGIN=[
