@@ -15,6 +15,8 @@ router.get('/all', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const data = req.body;
+    console.log(data);
+    console.log('saving')
     const main = new Main(data);
     console.log(main);
     try {
