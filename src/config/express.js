@@ -14,7 +14,6 @@ const app = express()
 app.use(morgan("dev"))
 app.set("views",path.resolve('./src/views'))
 app.use(express.static(path.resolve('./src/public')))
-app.use(express.json())
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000}));
 app.use(cors({
@@ -31,8 +30,6 @@ app.use(cors({
             
     }
 }))
-app.use(express.json())
-app.use(express.urlencoded({"extended":true}))
 //configuration
 app.engine('.hbs', exphbs.engine({      
     layoutDir: path.join(app.get('views'),"layouts"),      
