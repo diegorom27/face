@@ -1,6 +1,5 @@
 {
   "name": "nodejstry",
-  "version": "1.0.0",
   "description": "Reconocimiento de imagenes.",
   "main": "index.js",
   "type": "module",
