@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:false}))
 app.set("views",path.resolve('./src/views'))
 app.use(express.static(path.resolve('./src/public')))
 app.use(express.json())
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50MB' }));
 
 app.use(cors({
     origin:function(origin,callback){
