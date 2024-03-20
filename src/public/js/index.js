@@ -6,6 +6,15 @@ import {createCanvas} from './canvasFactory.js'
 import {saveModel,getModel,saveImg,getImg} from "./request.js"
 import { img2binary } from './img2binary.js'
 
+// Verificar si el dispositivo es un móvil o una tablet
+function esDispositivoMovil() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+  
+  // Mostrar un mensaje si el dispositivo es un móvil o una tablet
+  if (esDispositivoMovil()) {
+    alert("¡Atención! Esta aplicación no está optimizada para dispositivos móviles. Por favor, accede desde un dispositivo de escritorio para obtener la mejor experiencia.");
+  }
 
 let d = document,
     lienzo  = d.getElementById('frontalCanvas'),
