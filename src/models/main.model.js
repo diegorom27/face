@@ -32,18 +32,18 @@ const mainSchema = new Schema({
         lines: [lineSchema]
     },
     name: String,
-    frontalImageSrc: String,
-    lateralImageSrc: String,
-    objectiveImageSrc: String,
-    frontImageX: Number,
-    frontImageY: Number,
-    lateralImageX: Number,
-    lateralImageY: Number,
-    objectiveImageX: Number,
-    objectiveImageY: Number,
-    scale1: Number,
-    scale2: Number,
-    scale3: Number
+    imgLateral:{
+        type: Schema.Types.ObjectId,
+        ref: 'imgModel'
+    },
+    imgFront:{
+        type: Schema.Types.ObjectId,
+        'ref': 'imgModel'
+    },
+    imgObjective:{
+        type: Schema.Types.ObjectId,
+        "ref": 'imgModel'
+    }
 });
 
 export default model('MainModel', mainSchema);

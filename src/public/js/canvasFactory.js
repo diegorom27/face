@@ -1,6 +1,5 @@
 import { Canvas } from './canvas.js';
-import { loadImage } from './saveImage.js';
-
+import { loadImage } from './loadImage.js';
 export async function createCanvas(coors, canvasElement, imgPath = null,imgX=0,imgY=0, scale=null) {
     try {
         let img = null;
