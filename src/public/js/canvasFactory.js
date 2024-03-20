@@ -1,11 +1,10 @@
 import { Canvas } from './canvas.js';
+import { loadImage } from './loadImage.js';
 export async function createCanvas(coors, canvasElement, imgPath = null,imgX=0,imgY=0, scale=null) {
     try {
         let img = null;
         if (imgPath) {
-            img = new Image();
-            img.src = imgPath;
-            console.log(img)
+            img = await loadImage(imgPath);
         }
         const canvas = new Canvas(coors, canvasElement, img);
         if(scale)canvas.setScale = scale

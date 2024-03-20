@@ -4,35 +4,26 @@ import {handleMouseDown,handleMouseUp,handleMouseMove,handlerZoom} from "./event
 import {createCanvas} from './canvasFactory.js'
 import {saveModel,getModel,saveImg,getImg} from "./request.js"
 import { img2binary } from './img2binary.js'
-
-console.log('Hola desde index.js 1')
+import { init } from './init.js'
 
 let d = document,
     lienzo  = d.getElementById('frontalCanvas'),
     lienzo1 = d.getElementById('lateralCanvas'),
     lienzo2 = d.getElementById('objetiveCanvas')
 
-d.addEventListener('scroll', (e) => {
-    e.preventDefault();
-});
-const first = d.getElementById('first');
-first.focus();
-first.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+init(d)
 
 const res = await fetch('../json/models.json'),
       defaultModels = await res.json(),
-      {front,lateral,equivalentPoint}=defaultModels
+      {equivalentPoint}=defaultModels
+
 const urlParams = new URLSearchParams(window.location.search);
-let id = await urlParams.get("id") || "65fa014990bb53d0c6fa7350";
+let id = await urlParams.get("id") || "65fa1a0063efcfb570a0ea98";
 let model = await getModel(id)
 let imgF = await getImg(model.imgFront)
 let imgL = await getImg(model.imgLateral)
 let imgO = await getImg(model.imgObjective)
-/*
-const frontCanvas = await createCanvas(model.front, lienzo, model.frontalImageSrc,model?.frontImageX,model?.frontImageY,model?.scale1),
-      lateralCanvas = await createCanvas(model.lateral, lienzo1, model.lateralImageSrc,model?.lateralImageX,model?.lateralImageY,model?.scale2),
-      objetiveCanvas = await createCanvas(model.objective, lienzo2,model.objectiveImageSrc,model?.objectiveImageX,model?.objectiveImageY,model?.scale3);
-*/
+
 const frontCanvas = await createCanvas(model.front, lienzo, imgF.img , imgF.imageX , imgF.imageY ,imgF.scale),
       lateralCanvas = await createCanvas(model.lateral, lienzo1, imgL.img , imgL.imageX , imgL.imageY ,imgL.scale),
       objetiveCanvas = await createCanvas(model.objective, lienzo2, imgO.img , imgO.imageX , imgO.imageY ,imgO.scale);
@@ -87,7 +78,7 @@ d.addEventListener('click', async (e) => {
                 imgLateral: lId || '',
                 imgObjective: oId || '',
             });
-            //window.location.reload()
+            window.location.reload()
         }
     } catch (error) {
         console.error('Error en el evento click:', error);

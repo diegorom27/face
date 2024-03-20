@@ -20,7 +20,6 @@ export const getModel = async (id) => {
             }
         });
         const json = await res.json();
-        console.log(json)
         return json
     } catch (err) {
         return console.error(err);
