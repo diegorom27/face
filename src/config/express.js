@@ -20,7 +20,8 @@ app.use(express.urlencoded({ limit: '50mb', extended: true, parameterLimit: 5000
 app.use(cors({
     origin:function(origin,callback){
         const ACCEPTED_ORIGIN=[
-            "http://localhost:3000"
+            "http://localhost:3000",
+            "https://face-test3.vercel.app"
         ]
         if(/face-(.*)-diego-fernando-roman-lopezs-projects.vercel.app/.test(origin))
             return callback(null,true)
